@@ -1,0 +1,41 @@
+:root {
+    --primary: #3012f3; /* Naranja mercantil */
+    --secondary: #3012f3;
+    --bg: linear-gradient(135deg, #e1f5ff 0%, #b3faff 100%);
+    --shadow: 0 6px 20px rgba(243,156,18,0.25);
+    --border-radius: 14px;
+    --transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Roboto, sans-serif; max-width: 1100px; margin: 0 auto; padding: 24px; background: var(--bg); line-height: 1.75; color: #2c3e50; }
+header { text-align: center; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 32px; border-radius: var(--border-radius); margin-bottom: 36px; box-shadow: var(--shadow); position: relative; }
+header::after { content: '📦'; position: absolute; font-size: 4em; top: -20px; right: 20px; opacity: 0.1; }
+h1 { font-size: 2.2em; margin-bottom: 12px; text-shadow: 3px 3px 8px rgba(0,0,0,0.4); }
+h2 { color: var(--secondary); border-bottom: 5px solid var(--primary); padding-bottom: 16px; margin: 36px 0 24px; font-size: 1.6em; display: flex; align-items: center; gap: 16px; position: relative; }
+h2::before { content: '⚖️'; font-size: 1.4em; }
+label { display: block; margin: 22px 0 10px; font-weight: 700; color: #34495e; font-size: 1.15em; }
+textarea { resize: vertical; min-height: 100px; }
+.row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 28px; }
+.col { position: relative; }
+.col input, .col select, textarea { width: 100%; padding: 18px; border: 2px solid #f1e5d6; border-radius: 12px; font-size: 16px; transition: var(--transition); background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.08); }
+.col input:focus, .col select:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 25px rgba(243,156,18,0.4), 0 6px 16px rgba(243,156,18,0.2); transform: translateY(-4px); outline: none; }
+.nota-legal { background: #fff3cd; border: 2px solid #ffeaa7; padding: 20px; border-radius: 12px; margin: 24px 0; font-size: 1em; color: #856404; position: relative; box-shadow: 0 4px 12px rgba(255,193,7,0.2); }
+.nota-legal::before { content: '📄'; position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 1.5em; }
+table { width: 100%; border-collapse: collapse; margin: 32px 0; background: white; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--shadow); }
+th { background: linear-gradient(135deg, var(--secondary), var(--primary)); color: white; padding: 22px; text-align: left; font-weight: 700; font-size: 1.1em; }
+td { padding: 22px; border-bottom: 2px solid #f8f4e6; vertical-align: top; }
+input[type="checkbox"] { transform: scale(1.6); margin-right: 16px; accent-color: var(--primary); cursor: pointer; }
+.clausulas { margin: 40px 0; }
+.clausula-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.clausula-item { background: linear-gradient(135deg, #fffaf0 0%, #fef5e7 100%); border: 2px solid rgba(243,156,18,0.3); padding: 28px; border-radius: var(--border-radius); box-shadow: var(--shadow); transition: var(--transition); }
+.clausula-item:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(243,156,18,0.35); }
+.clausula-item h4 { color: var(--primary); margin-bottom: 16px; font-size: 1.3em; border-bottom: 2px solid var(--primary); padding-bottom: 8px; }
+button { background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; padding: 22px 56px; border: none; border-radius: 60px; font-size: 1.4em; font-weight: 800; cursor: pointer; transition: var(--transition); box-shadow: var(--shadow); display: block; margin: 56px auto 0; position: relative; overflow: hidden; min-width: 320px; }
+button::before { content: ''; position: absolute; top: 0; left: -150%; width: 150%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transition: left 0.6s; }
+button:hover::before { left: 100%; }
+button:hover, button:focus { transform: translateY(-6px) scale(1.03); box-shadow: 0 16px 40px rgba(243,156,18,0.5); outline: 4px solid rgba(243,156,18,0.6); }
+#mensaje { padding: 28px; margin: 36px 0; border-radius: 16px; text-align: center; font-weight: 800; font-size: 1.2em; display: none; box-shadow: var(--shadow); min-height: 80px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; }
+footer { margin-top: 64px; padding: 28px; background: rgba(243,156,18,0.12); border-radius: var(--border-radius); border-top: 4px solid var(--primary); }
+@media (max-width: 768px) { .row { grid-template-columns: 1fr; gap: 20px; } body { padding: 18px; } input, select, textarea { padding: 22px; font-size: 18px; } h1 { font-size: 1.8em; } }
+@media (max-width: 480px) { h2 { font-size: 1.4em; } button { padding: 20px 40px; font-size: 1.2em; min-width: 280px; } .clausula-grid { grid-template-columns: 1fr; } }

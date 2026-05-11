@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato Proveedores - CAPITAL INVESTMENTS S.A.S. 2026</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>CONTRATO DE SUMINISTRO / PRESTACIÓN SERVICIOS</h1>
+        <p>Código Comercio Dec.410/1971 Arts.968-980 | Paz-Salvo Parafiscales Ley 789/2002 | RUT/Matrícula Mercantil</p>
+    </header>
+    <main>
+        <form id="contratoForm" novalidate>
+            <section aria-labelledby="partes-h2">
+                <h2 id="partes-h2">PARTES</h2>
+                <div class="row">
+                    <div class="col">
+                        <label for="nitContratante">NIT Contratante:</label>
+                        <input type="text" id="nitContratante" value="901055873-8" required aria-required="true">
+                    </div>
+                    <div class="col">
+                        <label for="nomContratante">Contratante:</label>
+                        <input type="text" id="nomContratante" value="CAPITAL INVESTMENTS S.A.S." required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="nitProv">NIT/CC Proveedor:</label>
+                        <input type="text" id="nitProv" required>
+                    </div>
+                    <div class="col">
+                        <label for="nomProv">Proveedor/Razón Social:</label>
+                        <input type="text" id="nomProv" required>
+                    </div>
+                </div>
+                <label for="dirProv">Dirección Proveedor:</label>
+                <input type="text" id="dirProv" required>
+            </section>
+
+            <section aria-labelledby="objeto-h2">
+                <h2 id="objeto-h2">OBJETO DEL CONTRATO (Lícito y Determinado)</h2>
+                <label for="objeto">Descripción Precisa Bien/Servicio:</label>
+                <textarea id="objeto" rows="3" placeholder="Ej: Suministro mensual software UI/UX o bienes oficina" required></textarea>
+                <div class="row">
+                    <div class="col">
+                        <label for="cantidad">Cantidad/Volumen:</label>
+                        <input type="text" id="cantidad" required>
+                    </div>
+                    <div class="col">
+                        <label for="plazoEnt">Plazo Entrega:</label>
+                        <input type="text" id="plazoEnt" placeholder="Ej: 30 días calendario" required>
+                    </div>
+                </div>
+            </section>
+
+            <section aria-labelledby="econ-h2">
+                <h2 id="econ-h2">CONDICIONES ECONÓMICAS</h2>
+                <div class="row">
+                    <div class="col">
+                        <label for="valorTotal">Valor Total (sin IVA):</label>
+                        <input type="number" id="valorTotal" min="0" step="0.01" required>
+                    </div>
+                    <div class="col">
+                        <label for="formaPago">Forma Pago:</label>
+                        <select id="formaPago" required>
+                            <option value="">Seleccionar</option>
+                            <option value="net30">Neto 30 días</option>
+                            <option value="anticipo">Anticipo 50%</option>
+                            <option value="transferencia">Transferencia inmediata</option>
+                        </select>
+                    </div>
+                </div>
+                <label for="cuentaBanc">Cuenta Bancaria Proveedor:</label>
+                <input type="text" id="cuentaBanc" required>
+            </section>
+
+            <section aria-labelledby="docs-h2">
+                <h2 id="docs-h2">REQUISITOS DOCUMENTALES (Ley 789/2002)</h2>
+                <div class="row">
+                    <div class="col">
+                        <label for="rutProv">RUT Proveedor:</label>
+                        <input type="text" id="rutProv" required>
+                    </div>
+                    <div class="col">
+                        <label for="matricula">Matrícula Mercantil:</label>
+                        <input type="text" id="matricula" required>
+                    </div>
+                </div>
+                <label for="pazSalvo">Certificado Paz-Salvo Parafiscales/SS (Upload o Sí):</label>
+                <select id="pazSalvo" required>
+                    <option value="">Verificar</option>
+                    <option value="si">Sí (Adjunto PDF)</option>
+                    <option value="no">No (Bloquea)</option>
+                </select>
+                <p class="nota-legal">Obligatorio: No deudas EPS/Pensión/ARL/SENA/Icetex (Ley 2381/2024)</p>
+            </section>
+
+            <section aria-labelledby="checklist-h2">
+                <h2 id="checklist-h2">CHECKLIST LEGAL (100% Sí)</h2>
+                <table role="grid" aria-label="Checklist Proveedores">
+                    <thead><tr><th>Ítem</th><th>Sí/No</th><th>Obs</th></tr></thead>
+                    <tbody>
+                        <tr><td>Objeto Lícito/Determinado (Art.968 Cc)</td><td><input type="checkbox" id="chk1"></td><td><input type="text" size="15"></td></tr>
+                        <tr><td>Paz-Salvo Parafiscales/SS (Ley 789/2002)</td><td><input type="checkbox" id="chk2"></td><td><input type="text" size="15"></td></tr>
+                        <tr><td>RUT/Matrícula Vigentes</td><td><input type="checkbox" id="chk3"></td><td><input type="text" size="15"></td></tr>
+                        <tr><td>Cláusulas Penalidad/Resolución</td><td><input type="checkbox" id="chk4"></td><td><input type="text" size="15"></td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="clausulas" aria-labelledby="clausulas-h2">
+                <h2 id="clausulas-h2">CLÁUSULAS MERCANTILES FIJAS (Código Comercio)</h2>
+                <div class="clausula-grid">
+                    <div class="clausula-item">
+                        <h4>INCUMPLIMIENTO:</h4>
+                        <p>Penalidad 1% valor diario mora. Resolución unilateral 5 días aviso.</p>
+                    </div>
+                    <div class="clausula-item">
+                        <h4>GARANTÍAS:</h4>
+                        <p>6 meses defectos ocultos. Seguro entrega si aplica.</p>
+                    </div>
+                    <div class="clausula-item">
+                        <h4>CONFIDENCIALIDAD:</h4>
+                        <p>Reserva info 3 años post-contrato. NDA implícito.</p>
+                    </div>
+                    <div class="clausula-item">
+                        <h4>JURISDICCIÓN:</h4>
+                        <p>Villavicencio, Meta. Arbitraje opcional Cámara Comercio.</p>
+                    </div>
+                </div>
+            </section>
+        </form>
+        <button onclick="generarContratoProv()" aria-label="Generar PDF Mercantil">💼 Generar PDF Código Comercio</button>
+        <div id="mensaje" aria-live="polite"></div>
+    </main>
+    <footer style="text-align:center; margin-top:40px; color:#7f8c8d; padding:20px; background:rgba(230,126,34,0.1); border-radius:12px;">
+        Plantilla CAPITAL INVESTMENTS S.A.S. | Mayo 2026 | Rev. Legal Recomendada
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
